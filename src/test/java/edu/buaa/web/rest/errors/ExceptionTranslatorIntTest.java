@@ -1,6 +1,6 @@
 package edu.buaa.web.rest.errors;
 
-import edu.buaa.EdgeApp;
+import edu.buaa.Edge2App;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see ExceptionTranslator
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = EdgeApp.class)
+@SpringBootTest(classes = Edge2App.class)
 public class ExceptionTranslatorIntTest {
 
     @Autowired

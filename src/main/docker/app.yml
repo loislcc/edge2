@@ -1,20 +1,20 @@
 version: '2'
 services:
-    edge-app:
-        image: edge
+    edge2-app:
+        image: edge2
         environment:
             - _JAVA_OPTIONS=-Xmx512m -Xms256m
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - SPRING_CLOUD_CONSUL_HOST=consul
             - SPRING_CLOUD_CONSUL_PORT=8500
-            - SPRING_DATASOURCE_URL=jdbc:mysql://edge-mysql:3306/edge?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - SPRING_DATASOURCE_URL=jdbc:mysql://edge2-mysql:3306/edge2?useUnicode=true&characterEncoding=utf8&useSSL=false
             - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
             - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
             - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
-    edge-mysql:
+    edge2-mysql:
         extends:
             file: mysql.yml
-            service: edge-mysql
+            service: edge2-mysql
     kafka:
         extends:
             file: kafka.yml

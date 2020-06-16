@@ -84,7 +84,7 @@ spring:
     autoconfigure:
         exclude: org.springframework.boot.actuate.autoconfigure.metrics.jdbc.DataSourcePoolMetricsAutoConfiguration
     application:
-        name: edge
+        name: edge2
     cloud:
         consul:
             discovery:
@@ -141,11 +141,11 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: edge@localhost
+        from: edge2@localhost
     swagger:
         default-include-pattern: /api/.*
-        title: edge API
-        description: edge API documentation
+        title: edge2 API
+        description: edge2 API documentation
         version: 0.0.1
         terms-of-service-url:
         contact-name:

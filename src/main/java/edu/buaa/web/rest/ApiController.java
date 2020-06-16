@@ -3,7 +3,10 @@ package edu.buaa.web.rest;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import edu.buaa.domain.Notification;
 import edu.buaa.domain.messaging.TargetNotification;
+import edu.buaa.service.Constant;
+import edu.buaa.service.messaging.ShareNotiProducer;
 import edu.buaa.service.messaging.UpdateTargetNotificationProducer;
 import edu.buaa.service.messaging.channel.UpdateTargetChannel;
 import org.hibernate.criterion.Restrictions;
@@ -25,15 +28,20 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ForkJoinPool;
 import java.util.stream.Collectors;
 
-@Controller
+@RestController
 @RequestMapping("/api")
 public class ApiController {
 
 
     private UpdateTargetNotificationProducer updateTargetNotificationProducer;
+    private ShareNotiProducer shareNotiProducer;
+    private Constant constant;
 
-    public ApiController(UpdateTargetNotificationProducer updateTargetNotificationProducer) {
+    public ApiController(UpdateTargetNotificationProducer updateTargetNotificationProducer,
+                         Constant constant, ShareNotiProducer shareNotiProducer) {
         this.updateTargetNotificationProducer = updateTargetNotificationProducer;
+        this.constant = constant;
+        this.shareNotiProducer = shareNotiProducer;
     }
     @RequestMapping(value = "/map", method = RequestMethod.GET)
     public
@@ -64,6 +72,16 @@ public class ApiController {
         targetNotification.setSelfLatitude(30.273884);
         updateTargetNotificationProducer.sendMsgToGateway(targetNotification);
     }
+
+    @GetMapping("/sendfromEdge2")
+    public void sendEdge() {
+        Notification msg = new Notification();
+        msg.setOwner(constant.Edgename);
+        msg.setBody("hello!");
+        shareNotiProducer.sendMsgToEdges(msg);
+
+    }
+
 
     // 通用获取本机ip
     public String getLocalIpAddr() {

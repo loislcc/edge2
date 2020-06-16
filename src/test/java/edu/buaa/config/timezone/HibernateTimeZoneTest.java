@@ -1,6 +1,6 @@
 package edu.buaa.config.timezone;
 
-import edu.buaa.EdgeApp;
+import edu.buaa.Edge2App;
 import edu.buaa.repository.timezone.DateTimeWrapper;
 import edu.buaa.repository.timezone.DateTimeWrapperRepository;
 import org.junit.Before;
@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Unit tests for the UTC Hibernate configuration.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = EdgeApp.class)
+@SpringBootTest(classes = Edge2App.class)
 public class HibernateTimeZoneTest {
 
     @Autowired

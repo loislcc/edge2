@@ -1,12 +1,11 @@
 package edu.buaa.web.rest;
 
-import edu.buaa.EdgeApp;
+import edu.buaa.Edge2App;
 
 import edu.buaa.domain.Info;
 import edu.buaa.repository.InfoRepository;
 import edu.buaa.service.InfoService;
 import edu.buaa.web.rest.errors.ExceptionTranslator;
-import edu.buaa.service.dto.InfoCriteria;
 import edu.buaa.service.InfoQueryService;
 
 import org.junit.Before;
@@ -41,7 +40,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see InfoResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = EdgeApp.class)
+@SpringBootTest(classes = Edge2App.class)
 public class InfoResourceIntTest {
 
     private static final String DEFAULT_FILE_NAME = "AAAAAAAAAA";

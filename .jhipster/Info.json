@@ -1,6 +1,6 @@
 {
     "fluentMethods": true,
-    "clientRootFolder": "edge",
+    "clientRootFolder": "edge2",
     "relationships": [],
     "fields": [
         {
@@ -45,5 +45,5 @@
     "databaseType": "sql",
     "jpaMetamodelFiltering": true,
     "pagination": "pagination",
-    "microserviceName": "edge"
+    "microserviceName": "edge2"
 }

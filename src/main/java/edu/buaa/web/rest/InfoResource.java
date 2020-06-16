@@ -32,7 +32,7 @@ public class InfoResource {
 
     private final Logger log = LoggerFactory.getLogger(InfoResource.class);
 
-    private static final String ENTITY_NAME = "edgeInfo";
+    private static final String ENTITY_NAME = "edge2Info";
 
     private final InfoService infoService;
 

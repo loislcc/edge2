@@ -1,4 +1,4 @@
-# edge
+# edge2
 
 This application was generated using JHipster 5.8.2, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.8.2](https://www.jhipster.tech/documentation-archive/v5.8.2).
 
@@ -16,7 +16,7 @@ For further instructions on how to develop with JHipster, have a look at [Using 
 
 ## Building for production
 
-To optimize the edge application for production, run:
+To optimize the edge2 application for production, run:
 
     ./mvnw -Pprod clean package
 

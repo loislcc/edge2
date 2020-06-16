@@ -49,13 +49,19 @@ spring:
                 UpdateTargetChannel:
                     destination: gateway
                     group: targetDetection
+                ShareInChannel:
+                    destination: amongedge
+                    group: edges
+                ShareOutChannel:
+                    destination: amongedge
+                    group: edges
 #                output:
 #                    destination: topic-jhipster
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/edge?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+        url: jdbc:mysql://localhost:3306/edge2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
         username: root
-        password: root
+        password: lcly6557
         hikari:
             poolName: Hikari
             auto-commit: false
@@ -125,7 +131,7 @@ jhipster:
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: edge@localhost
+        from: edge2@localhost
         base-url: http://127.0.0.1:8081
     metrics:
         logs: # Reports metrics in the logs

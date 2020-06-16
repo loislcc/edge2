@@ -1,6 +1,6 @@
 package edu.buaa.web.rest;
 
-import edu.buaa.EdgeApp;
+import edu.buaa.Edge2App;
 import edu.buaa.web.rest.vm.LoggerVM;
 import ch.qos.logback.classic.AsyncAppender;
 import ch.qos.logback.classic.LoggerContext;
@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see LogsResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = EdgeApp.class)
+@SpringBootTest(classes = Edge2App.class)
 public class LogsResourceIntTest {
 
     private MockMvc restLogsMockMvc;

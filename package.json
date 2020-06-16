@@ -1,7 +1,7 @@
 {
-    "name": "edge",
+    "name": "edge2",
     "version": "0.0.0",
-    "description": "Description for edge",
+    "description": "Description for edge2",
     "private": true,
     "license": "UNLICENSED",
     "cacheDirectories": [
