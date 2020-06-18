@@ -51,10 +51,10 @@ spring:
                     group: targetDetection
                 ShareInChannel:
                     destination: amongedge
-                    group: edges
+#                    group: edges
                 ShareOutChannel:
                     destination: amongedge
-                    group: edges
+#                    group: edges
 #                output:
 #                    destination: topic-jhipster
     datasource:
