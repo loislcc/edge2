@@ -18,7 +18,7 @@ public class ShareNotiProducer {
     private ShareChannel shareChannel;
 
     public void sendMsgToEdges(Notification msg){
-        log.debug("send msg to edges ");
+//        log.debug("send msg to edges ");
         try {
             log.debug("send result: {}",
                 shareChannel.messageChannelout().send(MessageBuilder.withPayload(msg).build()));

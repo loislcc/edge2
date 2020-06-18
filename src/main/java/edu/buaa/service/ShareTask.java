@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 
 //@Configuration      //1.主要用于标记配置类，兼备Component的效果。
 //@EnableScheduling   // 2.开启定时任务
-@Component
-@Order(value=2)
+//@Component
+//@Order(value=2)
 public class ShareTask implements CommandLineRunner {
     private final InfoRepository infoRepository;
 
