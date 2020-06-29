@@ -4,10 +4,12 @@ package edu.buaa.service;
 import edu.buaa.domain.Device;
 import edu.buaa.domain.Notification;
 import edu.buaa.service.messaging.ShareNotiProducer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
+import javax.annotation.Resource;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

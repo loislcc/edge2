@@ -1,4 +1,5 @@
 package edu.buaa.web.rest;
+import com.alibaba.fastjson.JSONObject;
 import edu.buaa.domain.Info;
 import edu.buaa.service.InfoService;
 import edu.buaa.web.rest.errors.BadRequestAlertException;
@@ -7,6 +8,7 @@ import edu.buaa.web.rest.util.PaginationUtil;
 import edu.buaa.service.dto.InfoCriteria;
 import edu.buaa.service.InfoQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+import io.swagger.models.auth.In;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -134,5 +136,15 @@ public class InfoResource {
         log.debug("REST request to delete Info : {}", id);
         infoService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/infos/getall")
+//    @Timed
+    public List<Info> get2infos() {
+        log.debug("REST request to get infos ");
+        List<Info> info = infoService.findAllInfo();
+//        for(Info info1: info)
+//        log.debug("all:{}",info1.toString());
+            return info;
     }
 }

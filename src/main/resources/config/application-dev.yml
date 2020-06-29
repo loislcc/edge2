@@ -55,7 +55,12 @@ spring:
                 ShareOutChannel:
                     destination: amongedge
 #                    group: edges
-#                output:
+                GameInChannel:
+                    destination: gamedge
+        #                    group: edges    // 非持久队列
+                GameOutChannel:
+                    destination: gamedge
+        #                output:
 #                    destination: topic-jhipster
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
