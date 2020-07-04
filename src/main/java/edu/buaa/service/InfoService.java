@@ -79,4 +79,9 @@ public class InfoService {
         log.debug("Request to get all Infos");
         return infoRepository.findAll();
     }
+
+    @Transactional(readOnly = true)
+    public boolean existsbyname(String name) {
+        return infoRepository.existsByfileName(name);
+    }
 }
