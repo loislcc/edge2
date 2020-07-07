@@ -14,4 +14,6 @@ import java.util.Optional;
 @Repository
 public interface InfoRepository extends JpaRepository<Info, Long>, JpaSpecificationExecutor<Info> {
             boolean existsByfileName(String name);
+            Optional<Info>  findByfileName(String filename);
+
 }
