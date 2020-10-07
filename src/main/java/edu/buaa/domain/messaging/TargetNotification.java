@@ -13,6 +13,7 @@ public class TargetNotification {
 
     private  double selfLongitude;
     private  double selfLatitude;
+    private String brief;
 
     public String getCurrentTime() {
         return currentTime;
@@ -70,6 +71,28 @@ public class TargetNotification {
         this.ip = ip;
     }
 
+    public String getBrief() {
+        return brief;
+    }
+
+    public void setBrief(String brief) {
+        this.brief = brief;
+    }
+
+    @Override
+    public String toString() {
+        return "TargetNotification{" +
+            "currentTime='" + currentTime + '\'' +
+            ", category='" + category + '\'' +
+            ", ip='" + ip + '\'' +
+            ", longitude=" + longitude +
+            ", latitude=" + latitude +
+            ", selfLongitude=" + selfLongitude +
+            ", selfLatitude=" + selfLatitude +
+            ", brief='" + brief + '\'' +
+            '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -83,7 +106,8 @@ public class TargetNotification {
         if (Double.compare(that.selfLatitude, selfLatitude) != 0) return false;
         if (currentTime != null ? !currentTime.equals(that.currentTime) : that.currentTime != null) return false;
         if (category != null ? !category.equals(that.category) : that.category != null) return false;
-        return ip != null ? ip.equals(that.ip) : that.ip == null;
+        if (ip != null ? !ip.equals(that.ip) : that.ip != null) return false;
+        return brief != null ? brief.equals(that.brief) : that.brief == null;
     }
 
     @Override
@@ -101,6 +125,7 @@ public class TargetNotification {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(selfLatitude);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (brief != null ? brief.hashCode() : 0);
         return result;
     }
 }
