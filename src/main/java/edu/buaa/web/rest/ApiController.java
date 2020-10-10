@@ -75,6 +75,7 @@ public class ApiController {
 //        targetNotification.setSelfLatitude(39.915671);116.433547
         targetNotification.setSelfLongitude(120.188426);
         targetNotification.setSelfLatitude(30.273884);
+        targetNotification.setBrief(localip+" ---> "+targetNotification.getCategory()+" in ("+targetNotification.getLongitude()+"，"+targetNotification.getLatitude()+");");
         updateTargetNotificationProducer.sendMsgToGateway(targetNotification);
         toConsoleProducer.sendMsgToGatewayConsole(targetNotification);
         return new ResponseEntity<>(HttpStatus.OK);
