@@ -10,6 +10,7 @@ import edu.buaa.service.messaging.ShareNotiProducer;
 import edu.buaa.service.messaging.ToConsoleProducer;
 import edu.buaa.service.messaging.UpdateTargetNotificationProducer;
 import edu.buaa.service.messaging.channel.UpdateTargetChannel;
+import edu.buaa.web.rest.util.IPUtils;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -65,7 +66,7 @@ public class ApiController {
     public ResponseEntity<JSONObject> detectTarget() {
         TargetNotification targetNotification = new TargetNotification();
         SimpleDateFormat sdf = new SimpleDateFormat();
-        String localip = getLocalIpAddr();
+        String localip = IPUtils.getLocalIpAddr();
         targetNotification.setIp(localip);
         targetNotification.setCurrentTime(sdf.format(new Date()));
         targetNotification.setCategory("Car");
@@ -91,54 +92,7 @@ public class ApiController {
     }
 
 
-    // 通用获取本机ip
-    public String getLocalIpAddr() {
 
-        String clientIP = null;
-        Enumeration<NetworkInterface> networks = null;
-        try {
-            //获取所有网卡设备
-            networks = NetworkInterface.getNetworkInterfaces();
-            if (networks == null) {
-                //没有网卡设备 打印日志  返回null结束
-//                log.debug("networks  is null");
-                return null;
-            }
-        } catch (SocketException e) {
-            System.out.println(e.getMessage());
-        }
-        InetAddress ip;
-        Enumeration<InetAddress> addrs;
-        // 遍历网卡设备
-        while (networks.hasMoreElements()) {
-            NetworkInterface ni = networks.nextElement();
-            try {
-                //过滤掉 loopback设备、虚拟网卡
-                if (!ni.isUp() || ni.isLoopback() || ni.isVirtual()) {
-                    continue;
-                }
-            } catch (SocketException e) {
-//                logger.info(e.getMessage());
-            }
-            addrs = ni.getInetAddresses();
-            if (addrs == null) {
-//                logger.info("InetAddress is null");
-                continue;
-            }
-            // 遍历InetAddress信息
-            while (addrs.hasMoreElements()) {
-                ip = addrs.nextElement();
-                if (!ip.isLoopbackAddress() && ip.isSiteLocalAddress() && ip.getHostAddress().indexOf(":") == -1) {
-                    try {
-                        clientIP = ip.toString().split("/")[1];
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                        clientIP = null;
-                    }
-                }
-            }
-        }
-        return clientIP;
-    }
 
 }
 
