@@ -6,5 +6,5 @@ public class Constants {
 
     public final static String filepathtosaveimg = "/Users/lois/Desktop/IMG/recive"; // 正在执行
 
-
+    public final static String Edgename = "edge2";
 }

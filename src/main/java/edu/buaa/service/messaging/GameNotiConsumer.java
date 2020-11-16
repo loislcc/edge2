@@ -63,6 +63,7 @@ public class GameNotiConsumer {
                     info.setFile_bodyContentType(one.getString("filebodyContentType"));
                     if(!infoService.existsbyname(info.getFile_name())){   // 不存在重复的name 就存储
                         infoService.save(info);
+                        infoService.saveIMG(info);
                     }
                 }
             }

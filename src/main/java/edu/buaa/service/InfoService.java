@@ -1,7 +1,9 @@
 package edu.buaa.service;
 
+import edu.buaa.domain.Constants;
 import edu.buaa.domain.Info;
 import edu.buaa.repository.InfoRepository;
+import edu.buaa.web.rest.util.ImageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,6 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,6 +79,11 @@ public class InfoService {
         infoRepository.deleteById(id);
     }
 
+    public void deleteall() {
+        log.debug("Request to delete all Info ");
+        infoRepository.deleteAll();
+    }
+
     @Transactional(readOnly = true)
     public List<Info> findAllInfo() {
         log.debug("Request to get all Infos");
@@ -83,5 +93,12 @@ public class InfoService {
     @Transactional(readOnly = true)
     public boolean existsbyname(String name) {
         return infoRepository.existsByfileName(name);
+    }
+
+    public void saveIMG(Info info) {
+        String targetPath = Constants.filepathtosaveimg + File.separator + Constants.Edgename + File.separator + info.getFile_name() + ".png";
+        byte[] bytes = info.getFile_body();
+        InputStream input = new ByteArrayInputStream(bytes);
+        ImageUtil.readBin2Image(input, targetPath);
     }
 }
