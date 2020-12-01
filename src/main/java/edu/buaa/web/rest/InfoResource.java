@@ -156,7 +156,7 @@ public class InfoResource {
             return info;
     }
 
-    @GetMapping("/infos/rest")
+    @GetMapping("/infos/reset")
     public ResponseEntity<Info> resetall() {
         log.debug("REST request to reset Info ");
         infoService.deleteall();
